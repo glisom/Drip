@@ -1,3 +1,27 @@
-PODFILE CHECKSUM: 3bd1219fdb1ac5ca95d3471702042a42bcd6c70c
+PODS:
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
+  - Eureka (4.1.1)
+  - ImageRow (3.1.0):
+    - Eureka (~> 4.0)
+
+DEPENDENCIES:
+  - Charts
+  - Eureka
+  - ImageRow
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Charts
+    - Eureka
+    - ImageRow
+
+SPEC CHECKSUMS:
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
+
+PODFILE CHECKSUM: 947d20d5466e0cff02b2f4fc819a4cfb1e2e681a
 
 COCOAPODS: 1.5.0
