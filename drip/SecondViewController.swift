@@ -22,13 +22,22 @@ class SecondViewController: UIViewController, ChartViewDelegate {
         radarChartView.chartDescription?.enabled = false
         radarChartView.webLineWidth = 1
         radarChartView.innerWebLineWidth = 1
+        
+        let xAxis = radarChartView.xAxis
+        xAxis.labelFont = .systemFont(ofSize: 9, weight: .light)
+        xAxis.xOffset = 0
+        xAxis.yOffset = 0
+        xAxis.valueFormatter = self
+        xAxis.labelTextColor = .black
+        radarChartView.xAxis.drawLabelsEnabled = true
+        
         setChartData()
         
     }
     func setChartData() {
-        let mult: UInt32 = 80
-        let min: UInt32 = 20
-        let cnt = 5
+        let mult: UInt32 = 10
+        let min: UInt32 = 1
+        let cnt = 16
         
         let block: (Int) -> RadarChartDataEntry = { _ in return RadarChartDataEntry(value: Double(arc4random_uniform(mult) + min))}
         let entries2 = (0..<cnt).map(block)

@@ -11,7 +11,8 @@ import Eureka
 import ImageRow
 
 class FirstViewController: FormViewController {
-
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section("General Info")
@@ -67,8 +68,11 @@ class FirstViewController: FormViewController {
             +++ Section("Notes")
             <<< TextAreaRow(){ row in
             }
-        
-        
+    }
+    
+    @IBAction func didTapNextButton(_ sender: Any) {
+        // If valid
+        performSegue(withIdentifier: "showFlavorWheelEdit", sender: self)
     }
 
     class CurrencyFormatter : NumberFormatter, FormatterProtocol {

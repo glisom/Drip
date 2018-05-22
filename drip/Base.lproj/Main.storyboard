@@ -20,11 +20,36 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Entry" id="3eU-cZ-zfO"/>
+                    <navigationItem key="navigationItem" title="New Entry" id="3eU-cZ-zfO">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="sDE-Mj-15O">
+                            <connections>
+                                <action selector="didTapNextButton:" destination="9pv-A4-QxB" id="JHa-2D-D5D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nextButton" destination="sDE-Mj-15O" id="g0I-aZ-tsO"/>
+                        <segue destination="UBC-CH-TEF" kind="show" identifier="showFlavorWheelEdit" id="XCX-XJ-bAm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
+        </scene>
+        <!--Flavor Wheel Edit View Controller-->
+        <scene sceneID="kiM-oD-YW6">
+            <objects>
+                <viewController id="UBC-CH-TEF" customClass="FlavorWheelEditViewController" customModule="drip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lWn-YW-8Jk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Zic-9p-3bv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="06Y-vs-Gn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447" y="-321"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
