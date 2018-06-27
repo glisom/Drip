@@ -7,6 +7,7 @@ target 'drip' do
   pod 'Eureka'
   pod 'ImageRow'
   pod 'Charts'
+  pod 'RealmSwift'
   # Pods for drip
 
 end

@@ -5,23 +5,33 @@ PODS:
   - Eureka (4.1.1)
   - ImageRow (3.1.0):
     - Eureka (~> 4.0)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
 
 DEPENDENCIES:
   - Charts
   - Eureka
   - ImageRow
+  - RealmSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Charts
     - Eureka
     - ImageRow
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
 
-PODFILE CHECKSUM: 947d20d5466e0cff02b2f4fc819a4cfb1e2e681a
+PODFILE CHECKSUM: 5e091712c3fb5296264e43c34248340a8a3b7fbe
 
 COCOAPODS: 1.5.0

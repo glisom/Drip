@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
         </scene>
-        <!--Flavor Wheel Edit View Controller-->
+        <!--Flavor Wheel-->
         <scene sceneID="kiM-oD-YW6">
             <objects>
                 <viewController id="UBC-CH-TEF" customClass="FlavorWheelEditViewController" customModule="drip" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,6 +46,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zic-9p-3bv"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Flavor Wheel" id="gjN-uC-CGZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jfM-cI-g8M">
+                            <connections>
+                                <action selector="didTapSaveButton:" destination="UBC-CH-TEF" id="I1d-IE-4pQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="jfM-cI-g8M" id="6MC-u9-L6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06Y-vs-Gn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

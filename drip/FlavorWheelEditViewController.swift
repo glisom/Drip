@@ -8,8 +8,10 @@
 
 import UIKit
 import Eureka
+import RealmSwift
 
 class FlavorWheelEditViewController: FormViewController {
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     let flavors = ["Sweet", "Sour/Tart", "Floral", "Spicy", "Salty", "Berry Fruit", "Citrus Fruit", "Stone Fruit", "Chocolate", "Caramel", "Smoky", "Bitter", "Savory", "Body", "Clean", "Linger/Finish"]
 
@@ -28,6 +30,12 @@ class FlavorWheelEditViewController: FormViewController {
             }
         }
     }
-
-
+    
+    @IBAction func didTapSaveButton(_ sender: Any) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add("")
+        }
+    }
+    
 }

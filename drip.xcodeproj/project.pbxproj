@@ -16,6 +16,8 @@
 		D42A182520AF1E05002CBD17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */; };
 		D42A182D20AF21B6002CBD17 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D42A182C20AF21B6002CBD17 /* README.md */; };
 		D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */; };
+		D447A0EC20B7357F008E201D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0EB20B7357F008E201D /* Models.swift */; };
+		D447A0EE20B73951008E201D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0ED20B73951008E201D /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		D42A182620AF1E05002CBD17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D42A182C20AF21B6002CBD17 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorWheelEditViewController.swift; sourceTree = "<group>"; };
+		D447A0EB20B7357F008E201D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		D447A0ED20B73951008E201D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		EB111BB7365A997C62ADAA82 /* Pods_drip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,8 @@
 				D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */,
 				D42A182620AF1E05002CBD17 /* Info.plist */,
 				D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */,
+				D447A0EB20B7357F008E201D /* Models.swift */,
+				D447A0ED20B73951008E201D /* Session.swift */,
 			);
 			path = drip;
 			sourceTree = "<group>";
@@ -196,12 +202,16 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -217,8 +227,10 @@
 			files = (
 				D42A181D20AF1E04002CBD17 /* SecondViewController.swift in Sources */,
 				D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */,
+				D447A0EE20B73951008E201D /* Session.swift in Sources */,
 				D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */,
 				D42A181B20AF1E04002CBD17 /* FirstViewController.swift in Sources */,
+				D447A0EC20B7357F008E201D /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
