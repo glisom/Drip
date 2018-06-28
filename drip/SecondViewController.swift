@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import RealmSwift
 
 class SecondViewController: UIViewController, ChartViewDelegate {
     
@@ -31,18 +32,24 @@ class SecondViewController: UIViewController, ChartViewDelegate {
         xAxis.labelTextColor = .black
         radarChartView.xAxis.drawLabelsEnabled = true
         
+        
         setChartData()
         
     }
     func setChartData() {
-        let mult: UInt32 = 10
-        let min: UInt32 = 1
-        let cnt = 16
         
-        let block: (Int) -> RadarChartDataEntry = { _ in return RadarChartDataEntry(value: Double(arc4random_uniform(mult) + min))}
-        let entries2 = (0..<cnt).map(block)
+        let realm = try! Realm()
+        let coffees:Results<Coffee> = realm.objects(Coffee.self)
+        let coffee = coffees.first
+        let jsonData = coffee?.flavorProfile.data(using: .utf8)
+        let flavorProfile = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves) as! Dictionary<String, Float>
         
-        let set2 = RadarChartDataSet(values: entries2, label: "Example Coffee")
+        //let block: (Int) -> RadarChartDataEntry = { _ in return RadarChartDataEntry(value: flavorProfile?.values[$0])}
+        var chartData:[RadarChartDataEntry] = []
+        for value in (flavorProfile?.values)! {
+            chartData.append(RadarChartDataEntry.init(value: Double(value)))
+        }
+        let set2 = RadarChartDataSet(values: chartData, label: coffee?.name)
         set2.colors = ChartColorTemplates.colorful()
         set2.drawFilledEnabled = true
         set2.fillAlpha = 0.7

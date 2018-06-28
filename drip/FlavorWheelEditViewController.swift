@@ -21,7 +21,7 @@ class FlavorWheelEditViewController: FormViewController {
         form +++ Section("Flavor Wheel")
         for flavor:String in flavors {
             form.last!
-             <<< SliderRow(){ row in
+             <<< SliderRow(flavor){ row in
                 row.title = flavor
                 row.maximumValue = 5
                 row.minimumValue = 0
@@ -32,9 +32,16 @@ class FlavorWheelEditViewController: FormViewController {
     }
     
     @IBAction func didTapSaveButton(_ sender: Any) {
+        
+        if form.validate().count == 0 {
+            let jsonData = try? JSONSerialization.data(withJSONObject: form.values(), options: [.prettyPrinted])
+            let jsonString = String(data: jsonData!, encoding: .utf8)
+            Session.sharedInstance.flavorProfile =  jsonString!
+        }
+        
         let realm = try! Realm()
         try! realm.write {
-            realm.add("")
+            realm.add(Session.sharedInstance)
         }
     }
     

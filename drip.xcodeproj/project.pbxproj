@@ -92,11 +92,11 @@
 				D42A181820AF1E04002CBD17 /* AppDelegate.swift */,
 				D42A181A20AF1E04002CBD17 /* FirstViewController.swift */,
 				D42A181C20AF1E04002CBD17 /* SecondViewController.swift */,
+				D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */,
 				D42A181E20AF1E05002CBD17 /* Main.storyboard */,
 				D42A182120AF1E05002CBD17 /* Assets.xcassets */,
 				D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */,
 				D42A182620AF1E05002CBD17 /* Info.plist */,
-				D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */,
 				D447A0EB20B7357F008E201D /* Models.swift */,
 				D447A0ED20B73951008E201D /* Session.swift */,
 			);

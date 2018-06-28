@@ -16,27 +16,27 @@ class FirstViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++ Section("General Info")
-            <<< TextRow(){ row in
+            <<< TextRow("name"){ row in
                 row.title = "Coffee Origin/Name"
             }
-            <<< TextRow(){ row in
+            <<< TextRow("roaster"){ row in
                 row.title = "Roaster"
             }
-            <<< TextRow(){ row in
+            <<< TextRow("producer"){ row in
                 row.title = "Producer"
             }
-            <<< DateRow(){ row in
+            <<< DateRow("roast_date"){ row in
                 row.title = "Roast Date"
                 row.value = Date()
             }
-            <<< DateRow(){ row in
+            <<< DateRow("brew_date"){ row in
                 row.title = "Brew Date"
                 row.value = Date()
             }
-            <<< TextRow(){ row in
+            <<< TextRow("beverage"){ row in
                 row.title = "Beverage"
             }
-            <<< DecimalRow(){ row in
+            <<< DecimalRow("price"){ row in
                 row.title = "Price"
                 row.useFormatterDuringInput = true
                 let formatter = CurrencyFormatter()
@@ -44,36 +44,49 @@ class FirstViewController: FormViewController {
                 formatter.numberStyle = .currency
                 row.formatter = formatter
             }
-            <<< PushRow<String>() {
+            <<< PushRow<String>("brew_method") {
                 $0.title = "Brew Method"
                 $0.options = ["Cupping", "Drip", "Espresso", "Pour Over", "Press", "Siphon", "Other"]
-                $0.selectorTitle = "Choose an Brew Method!"
+                $0.selectorTitle = "Brew Method"
                 }.onPresent { from, to in
                     to.dismissOnSelection = false
                     to.dismissOnChange = false
             }
-            <<< TextRow(){ row in
-                row.title = "Flavor Wheel"
-            }
-            <<< SliderRow(){ row in
+            <<< SliderRow("rating"){ row in
                 row.title = "Rating"
                 row.maximumValue = 5
                 row.minimumValue = 0
                 row.steps = 5
                 row.value = 0
             }
-            <<< ImageRow() { row in
-                row.title = "Image of coffee or bag."
+            <<< ImageRow("image") { row in
+                row.title = "Add image of coffee or bag."
             }
             +++ Section("Notes")
-            <<< TextAreaRow(){ row in
+            <<< TextAreaRow("notes"){ row in
             }
     }
     
     @IBAction func didTapNextButton(_ sender: Any) {
-        // If valid
+        if form.validate().count == 0 {
+            
+            // Add values to shared instance while creating flavor wheel
+            Session.sharedInstance.name = form.values()["name"] as! String
+            Session.sharedInstance.roaster = form.values()["roaster"] as! String
+            Session.sharedInstance.producer = form.values()["producer"] as! String
+            Session.sharedInstance.roastDate = form.values()["roast_date"] as! Date
+            Session.sharedInstance.brewDate = form.values()["brew_date"] as! Date
+            Session.sharedInstance.beverage = form.values()["beverage"] as! String
+            Session.sharedInstance.price = form.values()["price"] as! Double
+            Session.sharedInstance.brewMethod = form.values()["brew_method"] as! String
+            Session.sharedInstance.rating = form.values()["rating"] as! Float
+            Session.sharedInstance.image = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0)!
+            Session.sharedInstance.notes = form.values()["notes"] as! String
+            
+            performSegue(withIdentifier: "showFlavorWheelEdit", sender: self)
+        }
         
-        performSegue(withIdentifier: "showFlavorWheelEdit", sender: self)
+        
     }
 
     class CurrencyFormatter : NumberFormatter, FormatterProtocol {
