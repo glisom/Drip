@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import ImageRow
 
-class FirstViewController: FormViewController {
+class NewEntryController: FormViewController {
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
     override func viewDidLoad() {
