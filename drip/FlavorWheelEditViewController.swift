@@ -12,6 +12,7 @@ import RealmSwift
 
 class FlavorWheelEditViewController: FormViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    var coffee: Coffee!
     
     let flavors = ["Sweet", "Sour/Tart", "Floral", "Spicy", "Salty", "Berry Fruit", "Citrus Fruit", "Stone Fruit", "Chocolate", "Caramel", "Smoky", "Bitter", "Savory", "Body", "Clean", "Linger/Finish"]
 
@@ -36,12 +37,12 @@ class FlavorWheelEditViewController: FormViewController {
         if form.validate().count == 0 {
             let jsonData = try? JSONSerialization.data(withJSONObject: form.values(), options: [.prettyPrinted])
             let jsonString = String(data: jsonData!, encoding: .utf8)
-            Session.sharedInstance.flavorProfile =  jsonString!
+            coffee.flavorProfile =  jsonString!
         }
         
         let realm = try! Realm()
         try! realm.write {
-            realm.add(Session.sharedInstance)
+            realm.add(coffee)
         }
     }
     

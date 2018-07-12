@@ -1,13 +1,11 @@
-# Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
 target 'drip' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  inhibit_all_warnings!
   use_frameworks!
   pod 'Eureka'
   pod 'ImageRow'
   pod 'Charts'
   pod 'RealmSwift'
-  # Pods for drip
-
+  pod 'DZNEmptyDataSet'
 end

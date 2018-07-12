@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  NewEntryController.swift
 //  drip
 //
 //  Created by Isom,Grant on 5/18/18.
@@ -12,9 +12,13 @@ import ImageRow
 
 class NewEntryController: FormViewController {
     @IBOutlet weak var nextButton: UIBarButtonItem!
+    var coffee: Coffee!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        coffee = Coffee()
+        
         form +++ Section("General Info")
             <<< TextRow("name"){ row in
                 row.title = "Coffee Origin/Name"
@@ -69,24 +73,28 @@ class NewEntryController: FormViewController {
     
     @IBAction func didTapNextButton(_ sender: Any) {
         if form.validate().count == 0 {
-            
             // Add values to shared instance while creating flavor wheel
-            Session.sharedInstance.name = form.values()["name"] as! String
-            Session.sharedInstance.roaster = form.values()["roaster"] as! String
-            Session.sharedInstance.producer = form.values()["producer"] as! String
-            Session.sharedInstance.roastDate = form.values()["roast_date"] as! Date
-            Session.sharedInstance.brewDate = form.values()["brew_date"] as! Date
-            Session.sharedInstance.beverage = form.values()["beverage"] as! String
-            Session.sharedInstance.price = form.values()["price"] as! Double
-            Session.sharedInstance.brewMethod = form.values()["brew_method"] as! String
-            Session.sharedInstance.rating = form.values()["rating"] as! Float
-            Session.sharedInstance.image = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0)!
-            Session.sharedInstance.notes = form.values()["notes"] as! String
+            coffee.name = form.values()["name"] as! String
+            coffee.roaster = form.values()["roaster"] as! String
+            coffee.producer = form.values()["producer"] as! String
+            coffee.roastDate = form.values()["roast_date"] as! Date
+            coffee.brewDate = form.values()["brew_date"] as! Date
+            coffee.beverage = form.values()["beverage"] as! String
+            coffee.price = form.values()["price"] as! Double
+            coffee.brewMethod = form.values()["brew_method"] as! String
+            coffee.rating = form.values()["rating"] as! Float
+            coffee.image = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0)!
+            coffee.notes = form.values()["notes"] as! String
             
-            performSegue(withIdentifier: "showFlavorWheelEdit", sender: self)
+            performSegue(withIdentifier: "showFlavorWheelEdit", sender: coffee)
         }
-        
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFlavorWheelEdit" {
+            let flavorWheelEditVC:FlavorWheelEditViewController = segue.destination as! FlavorWheelEditViewController
+            flavorWheelEditVC.coffee = sender as! Coffee
+        }
     }
 
     class CurrencyFormatter : NumberFormatter, FormatterProtocol {

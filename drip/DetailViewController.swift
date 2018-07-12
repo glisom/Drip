@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  DetailViewController.swift
 //  drip
 //
 //  Created by Isom,Grant on 5/18/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 import Charts
-import RealmSwift
 
-class SecondViewController: UIViewController, ChartViewDelegate {
+class DetailViewController: UIViewController, ChartViewDelegate {
+    var coffee:Coffee!
     
     var radarChartView: RadarChartView!
     let flavors = ["Sweet", "Sour/Tart", "Floral", "Spicy", "Salty", "Berry Fruit", "Citrus Fruit", "Stone Fruit", "Chocolate", "Caramel", "Smoky", "Bitter", "Savory", "Body", "Clean", "Linger/Finish"]
@@ -37,14 +37,9 @@ class SecondViewController: UIViewController, ChartViewDelegate {
         
     }
     func setChartData() {
-        
-        let realm = try! Realm()
-        let coffees:Results<Coffee> = realm.objects(Coffee.self)
-        let coffee = coffees.first
-        let jsonData = coffee?.flavorProfile.data(using: .utf8)
+        let jsonData = coffee.flavorProfile.data(using: .utf8)
         let flavorProfile = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves) as! Dictionary<String, Float>
         
-        //let block: (Int) -> RadarChartDataEntry = { _ in return RadarChartDataEntry(value: flavorProfile?.values[$0])}
         var chartData:[RadarChartDataEntry] = []
         for value in (flavorProfile?.values)! {
             chartData.append(RadarChartDataEntry.init(value: Double(value)))
@@ -66,7 +61,7 @@ class SecondViewController: UIViewController, ChartViewDelegate {
     }
 }
     
-extension SecondViewController: IAxisValueFormatter {
+extension DetailViewController: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return flavors[Int(value) % flavors.count]
     }

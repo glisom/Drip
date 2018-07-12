@@ -2,6 +2,7 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
+  - DZNEmptyDataSet (1.8.1)
   - Eureka (4.1.1)
   - ImageRow (3.1.0):
     - Eureka (~> 4.0)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - DZNEmptyDataSet
   - Eureka
   - ImageRow
   - RealmSwift
@@ -20,6 +22,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Charts
+    - DZNEmptyDataSet
     - Eureka
     - ImageRow
     - Realm
@@ -27,11 +30,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
 
-PODFILE CHECKSUM: 5e091712c3fb5296264e43c34248340a8a3b7fbe
+PODFILE CHECKSUM: e933bb1cf6cddb21ac8f2644c80c3523b8d82823
 
 COCOAPODS: 1.5.0

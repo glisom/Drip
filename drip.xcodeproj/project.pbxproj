@@ -10,14 +10,14 @@
 		46095E435E9F7C0EBAB9C90F /* Pods_drip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB111BB7365A997C62ADAA82 /* Pods_drip.framework */; };
 		D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181820AF1E04002CBD17 /* AppDelegate.swift */; };
 		D42A181B20AF1E04002CBD17 /* NewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181A20AF1E04002CBD17 /* NewEntryController.swift */; };
-		D42A181D20AF1E04002CBD17 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181C20AF1E04002CBD17 /* SecondViewController.swift */; };
+		D42A181D20AF1E04002CBD17 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181C20AF1E04002CBD17 /* DetailViewController.swift */; };
 		D42A182020AF1E05002CBD17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42A181E20AF1E05002CBD17 /* Main.storyboard */; };
 		D42A182220AF1E05002CBD17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D42A182120AF1E05002CBD17 /* Assets.xcassets */; };
 		D42A182520AF1E05002CBD17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */; };
 		D42A182D20AF21B6002CBD17 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D42A182C20AF21B6002CBD17 /* README.md */; };
 		D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */; };
 		D447A0EC20B7357F008E201D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0EB20B7357F008E201D /* Models.swift */; };
-		D447A0EE20B73951008E201D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0ED20B73951008E201D /* Session.swift */; };
+		D464ACEA20F7B17F00AEC201 /* CoffeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		D42A181520AF1E04002CBD17 /* drip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42A181820AF1E04002CBD17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42A181A20AF1E04002CBD17 /* NewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryController.swift; sourceTree = "<group>"; };
-		D42A181C20AF1E04002CBD17 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D42A181C20AF1E04002CBD17 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D42A181F20AF1E05002CBD17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D42A182120AF1E05002CBD17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D42A182420AF1E05002CBD17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,7 +34,7 @@
 		D42A182C20AF21B6002CBD17 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorWheelEditViewController.swift; sourceTree = "<group>"; };
 		D447A0EB20B7357F008E201D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		D447A0ED20B73951008E201D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTableViewController.swift; sourceTree = "<group>"; };
 		EB111BB7365A997C62ADAA82 /* Pods_drip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,13 +92,13 @@
 				D42A181820AF1E04002CBD17 /* AppDelegate.swift */,
 				D42A181A20AF1E04002CBD17 /* NewEntryController.swift */,
 				D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */,
-				D42A181C20AF1E04002CBD17 /* SecondViewController.swift */,
+				D42A181C20AF1E04002CBD17 /* DetailViewController.swift */,
+				D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */,
 				D42A181E20AF1E05002CBD17 /* Main.storyboard */,
 				D42A182120AF1E05002CBD17 /* Assets.xcassets */,
 				D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */,
 				D42A182620AF1E05002CBD17 /* Info.plist */,
 				D447A0EB20B7357F008E201D /* Models.swift */,
-				D447A0ED20B73951008E201D /* Session.swift */,
 			);
 			path = drip;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Grant Isom";
 				TargetAttributes = {
 					D42A181420AF1E04002CBD17 = {
@@ -200,6 +200,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-drip/Pods-drip-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -208,6 +209,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -225,10 +227,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42A181D20AF1E04002CBD17 /* SecondViewController.swift in Sources */,
+				D42A181D20AF1E04002CBD17 /* DetailViewController.swift in Sources */,
 				D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */,
-				D447A0EE20B73951008E201D /* Session.swift in Sources */,
 				D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */,
+				D464ACEA20F7B17F00AEC201 /* CoffeeTableViewController.swift in Sources */,
 				D42A181B20AF1E04002CBD17 /* NewEntryController.swift in Sources */,
 				D447A0EC20B7357F008E201D /* Models.swift in Sources */,
 			);
@@ -270,6 +272,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -277,6 +280,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -327,6 +331,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -334,6 +339,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
