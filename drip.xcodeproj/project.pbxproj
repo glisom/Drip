@@ -18,6 +18,7 @@
 		D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */; };
 		D447A0EC20B7357F008E201D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447A0EB20B7357F008E201D /* Models.swift */; };
 		D464ACEA20F7B17F00AEC201 /* CoffeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */; };
+		D4D282002101163D00F29E49 /* CoffeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D281FF2101163D00F29E49 /* CoffeeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorWheelEditViewController.swift; sourceTree = "<group>"; };
 		D447A0EB20B7357F008E201D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTableViewController.swift; sourceTree = "<group>"; };
+		D4D281FF2101163D00F29E49 /* CoffeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTableViewCell.swift; sourceTree = "<group>"; };
 		EB111BB7365A997C62ADAA82 /* Pods_drip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_drip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */,
 				D42A182620AF1E05002CBD17 /* Info.plist */,
 				D447A0EB20B7357F008E201D /* Models.swift */,
+				D4D281FF2101163D00F29E49 /* CoffeeTableViewCell.swift */,
 			);
 			path = drip;
 			sourceTree = "<group>";
@@ -200,20 +203,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-drip/Pods-drip-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -227,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D282002101163D00F29E49 /* CoffeeTableViewCell.swift in Sources */,
 				D42A181D20AF1E04002CBD17 /* DetailViewController.swift in Sources */,
 				D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */,
 				D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */,

@@ -24,10 +24,11 @@ class FlavorWheelEditViewController: FormViewController {
             form.last!
              <<< SliderRow(flavor){ row in
                 row.title = flavor
-                row.maximumValue = 5
-                row.minimumValue = 0
                 row.steps = 5
                 row.value = 0
+            }.cellSetup { cell, row in
+                    cell.slider.minimumValue = 0
+                    cell.slider.maximumValue = 5
             }
         }
     }
@@ -44,6 +45,7 @@ class FlavorWheelEditViewController: FormViewController {
         try! realm.write {
             realm.add(coffee)
         }
+        self.performSegue(withIdentifier: "unwindToStart", sender: self)
     }
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import ImageRow
+import SwiftMessages
 
 class NewEntryController: FormViewController {
     @IBOutlet weak var nextButton: UIBarButtonItem!
@@ -21,12 +22,18 @@ class NewEntryController: FormViewController {
         
         form +++ Section("General Info")
             <<< TextRow("name"){ row in
+                row.value = ""
                 row.title = "Coffee Origin/Name"
+                var rules = RuleSet<String>()
+                rules.add(rule: RuleRequired())
+                row.add(ruleSet: rules)
             }
             <<< TextRow("roaster"){ row in
+                row.value = ""
                 row.title = "Roaster"
             }
             <<< TextRow("producer"){ row in
+                row.value = ""
                 row.title = "Producer"
             }
             <<< DateRow("roast_date"){ row in
@@ -38,9 +45,11 @@ class NewEntryController: FormViewController {
                 row.value = Date()
             }
             <<< TextRow("beverage"){ row in
+                row.value = ""
                 row.title = "Beverage"
             }
             <<< DecimalRow("price"){ row in
+                row.value = 0.00
                 row.title = "Price"
                 row.useFormatterDuringInput = true
                 let formatter = CurrencyFormatter()
@@ -49,6 +58,7 @@ class NewEntryController: FormViewController {
                 row.formatter = formatter
             }
             <<< PushRow<String>("brew_method") {
+                $0.value = ""
                 $0.title = "Brew Method"
                 $0.options = ["Cupping", "Drip", "Espresso", "Pour Over", "Press", "Siphon", "Other"]
                 $0.selectorTitle = "Brew Method"
@@ -58,16 +68,19 @@ class NewEntryController: FormViewController {
             }
             <<< SliderRow("rating"){ row in
                 row.title = "Rating"
-                row.maximumValue = 5
-                row.minimumValue = 0
                 row.steps = 5
                 row.value = 0
+                }.cellSetup { cell, row in
+                    cell.slider.minimumValue = 0
+                    cell.slider.maximumValue = 5
             }
             <<< ImageRow("image") { row in
+                row.value = UIImage()
                 row.title = "Add image of coffee or bag."
             }
             +++ Section("Notes")
             <<< TextAreaRow("notes"){ row in
+                row.value = ""
             }
     }
     
@@ -83,10 +96,22 @@ class NewEntryController: FormViewController {
             coffee.price = form.values()["price"] as! Double
             coffee.brewMethod = form.values()["brew_method"] as! String
             coffee.rating = form.values()["rating"] as! Float
-            coffee.image = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0)!
+            if let imageData = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0) {
+                coffee.image = imageData
+            }
             coffee.notes = form.values()["notes"] as! String
             
             performSegue(withIdentifier: "showFlavorWheelEdit", sender: coffee)
+        } else {
+            let view = MessageView.viewFromNib(layout: .cardView)
+            view.configureTheme(.warning)
+            view.configureDropShadow()
+            let iconText = ["🤔", "😳", "🙄", "😶"].sm_random()!
+            view.configureContent(title: "Whoops", body: "Coffee Origin/Name is required.", iconText: iconText)
+            view.button?.isHidden = true
+            
+            // Show the message.
+            SwiftMessages.show(view: view)
         }
     }
     

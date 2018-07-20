@@ -50,12 +50,24 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "coffeeCell", for: indexPath) as! CoffeeTableViewCell
 
         let coffee:Coffee = coffees[indexPath.row]
         
-        cell.textLabel?.text = coffee.name
-
+        cell.coffeeTitleLabel?.text = coffee.name
+        cell.coffeeSubtitleLabel?.text = coffee.roaster
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        cell.brewDateLabel.text = formatter.string(from: coffee.brewDate)
+        
+        cell.coffeeImageView?.image = UIImage.init(data: coffee.image)
+        cell.coffeeImageView?.contentMode = UIViewContentMode.scaleAspectFill
+        cell.coffeeImageView?.layer.masksToBounds = true
+        cell.coffeeImageView?.layer.cornerRadius = 49
+        cell.descriptionLabel.text = coffee.notes
+        cell.coffee = coffee
+        
         return cell
     }
     
@@ -84,8 +96,15 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            let detailVC = segue.destination as! DetailViewController
+            let cell = sender as! CoffeeTableViewCell
+            detailVC.coffee = cell.coffee
+        }
+    }
+    
+    @IBAction func unwindToViewControllerNameHere(segue: UIStoryboardSegue) {
+        tableView.reloadData()
     }
     
 

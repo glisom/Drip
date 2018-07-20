@@ -8,4 +8,6 @@ target 'drip' do
   pod 'Charts'
   pod 'RealmSwift'
   pod 'DZNEmptyDataSet'
+  pod 'SwiftMessages'
+  pod 'Cosmos'
 end

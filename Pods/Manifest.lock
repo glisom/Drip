@@ -2,40 +2,50 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
+  - Cosmos (16.0.0)
   - DZNEmptyDataSet (1.8.1)
-  - Eureka (4.1.1)
+  - Eureka (4.2.0)
   - ImageRow (3.1.0):
     - Eureka (~> 4.0)
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - RealmSwift (3.7.4):
+    - Realm (= 3.7.4)
+  - SwiftMessages (4.1.4):
+    - SwiftMessages/App (= 4.1.4)
+  - SwiftMessages/App (4.1.4)
 
 DEPENDENCIES:
   - Charts
+  - Cosmos
   - DZNEmptyDataSet
   - Eureka
   - ImageRow
   - RealmSwift
+  - SwiftMessages
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Charts
+    - Cosmos
     - DZNEmptyDataSet
     - Eureka
     - ImageRow
     - Realm
     - RealmSwift
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  Cosmos: 7bcee0fa858a9355a214f2a181be5dffcee42c81
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
+  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
 
-PODFILE CHECKSUM: e933bb1cf6cddb21ac8f2644c80c3523b8d82823
+PODFILE CHECKSUM: a0918f78ee70434674dfffd1b5c4f0295c52f7d9
 
 COCOAPODS: 1.5.0
