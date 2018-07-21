@@ -87,19 +87,19 @@ class NewEntryController: FormViewController {
     @IBAction func didTapNextButton(_ sender: Any) {
         if form.validate().count == 0 {
             // Add values to shared instance while creating flavor wheel
-            coffee.name = form.values()["name"] as! String
-            coffee.roaster = form.values()["roaster"] as! String
-            coffee.producer = form.values()["producer"] as! String
-            coffee.roastDate = form.values()["roast_date"] as! Date
-            coffee.brewDate = form.values()["brew_date"] as! Date
-            coffee.beverage = form.values()["beverage"] as! String
-            coffee.price = form.values()["price"] as! Double
-            coffee.brewMethod = form.values()["brew_method"] as! String
-            coffee.rating = form.values()["rating"] as! Float
+            isNil(form.values()["name"]) ? () : (coffee.name = form.values()["name"] as! String)
+            isNil(form.values()["roaster"]) ? () : (coffee.roaster = form.values()["roaster"] as! String)
+            isNil(form.values()["producer"]) ? () : (coffee.producer = form.values()["producer"] as! String)
+            isNil(form.values()["roast_date"]) ? () : (coffee.roastDate = form.values()["roast_date"] as! Date)
+            isNil(form.values()["brew_date"]) ? () : (coffee.brewDate = form.values()["brew_date"] as! Date)
+            isNil(form.values()["beverage"]) ? () : (coffee.beverage = form.values()["beverage"] as! String)
+            isNil(form.values()["price"]) ? () : (coffee.price = form.values()["price"] as! Double)
+            isNil(form.values()["brew_method"]) ? () : (coffee.brewMethod = form.values()["brew_method"] as! String)
+            isNil(form.values()["rating"]) ? () : (coffee.rating = form.values()["rating"] as! Float)
             if let imageData = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0) {
                 coffee.image = imageData
             }
-            coffee.notes = form.values()["notes"] as! String
+            isNil(form.values()["notes"]) ? () : (coffee.notes = form.values()["notes"] as! String)
             
             performSegue(withIdentifier: "showFlavorWheelEdit", sender: coffee)
         } else {
@@ -141,7 +141,9 @@ class NewEntryController: FormViewController {
             return textInput.position(from: position, offset:((newValue?.count ?? 0) - (oldValue?.count ?? 0))) ?? position
         }
     }
-
-
+    
+    func isNil(_ any:Optional<Any>?) -> Bool {
+        return any.unsafelyUnwrapped == nil
+    }
 }
 

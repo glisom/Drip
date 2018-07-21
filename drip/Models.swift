@@ -22,19 +22,4 @@ class Coffee: Object {
     @objc dynamic var brewMethod = ""
     @objc dynamic var image = Data()
     @objc dynamic var flavorProfile = ""
-    
-    func clear() {
-        self.name = ""
-        self.roaster = ""
-        self.producer = ""
-        self.roastDate = Date()
-        self.brewDate = Date()
-        self.beverage = ""
-        self.price = Double()
-        self.notes = ""
-        self.rating = Float()
-        self.brewMethod = ""
-        self.image = Data()
-        self.flavorProfile = ""
-    }
 }
