@@ -73,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JJw-of-Wjg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="JJw-of-Wjg">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JJw-of-Wjg" id="2JW-JJ-lrv">
@@ -101,54 +101,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-To-TvZ">
-                                <rect key="frame" x="0.0" y="383" width="375" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfX-B4-svb">
-                                <rect key="frame" x="160.5" y="427" width="54" height="27"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Text, Sample Text Sample Text, Sample Text Sample Text, Sample Text Sample Text, Sample Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejG-uJ-Pxh">
-                                <rect key="frame" x="0.0" y="462" width="375" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tek-87-zV5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQf-GJ-hUQ">
+                                <rect key="frame" x="8" y="80" width="359" height="359"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Tek-87-zV5" secondAttribute="height" multiplier="1:1" id="2ry-QK-nTf"/>
+                                    <constraint firstAttribute="width" secondItem="TQf-GJ-hUQ" secondAttribute="height" multiplier="1:1" id="h6R-sh-yrX"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sfX-B4-svb" firstAttribute="top" secondItem="Pg5-To-TvZ" secondAttribute="bottom" constant="8" id="2Ih-eh-Cfu"/>
-                            <constraint firstItem="Pg5-To-TvZ" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="4nh-67-jdz"/>
-                            <constraint firstItem="sfX-B4-svb" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="BcQ-kN-LaX"/>
-                            <constraint firstItem="Tek-87-zV5" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="EYE-7W-x9K"/>
-                            <constraint firstItem="ejG-uJ-Pxh" firstAttribute="top" secondItem="sfX-B4-svb" secondAttribute="bottom" constant="8" id="FCG-Cc-9Sc"/>
-                            <constraint firstItem="Tek-87-zV5" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="Uy7-YD-RSp"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="top" secondItem="Tek-87-zV5" secondAttribute="top" constant="20" id="gBI-dx-BAz"/>
-                            <constraint firstItem="Pg5-To-TvZ" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="gkz-IA-GBf"/>
-                            <constraint firstItem="Pg5-To-TvZ" firstAttribute="top" secondItem="Tek-87-zV5" secondAttribute="bottom" constant="8" id="oVR-IY-Pmv"/>
-                            <constraint firstItem="ejG-uJ-Pxh" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="odX-Ec-3L1"/>
-                            <constraint firstItem="ejG-uJ-Pxh" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="zGf-zp-yLs"/>
+                            <constraint firstItem="TQf-GJ-hUQ" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="16" id="Gh2-Te-cgX"/>
+                            <constraint firstItem="TQf-GJ-hUQ" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" constant="-16" id="OGF-RH-4sG"/>
+                            <constraint firstItem="TQf-GJ-hUQ" firstAttribute="centerX" secondItem="O1u-W8-tvY" secondAttribute="centerX" id="pRq-ry-ulL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="coffeeImageView" destination="Tek-87-zV5" id="u5R-1p-aA4"/>
-                        <outlet property="descriptionLabel" destination="ejG-uJ-Pxh" id="I7A-1D-LBN"/>
-                        <outlet property="subTitleLabel" destination="sfX-B4-svb" id="6sJ-z5-zDq"/>
-                        <outlet property="titleLabel" destination="Pg5-To-TvZ" id="hUs-41-9t9"/>
+                        <outlet property="chartView" destination="TQf-GJ-hUQ" id="qH4-rR-hgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -164,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="coffeeCell" rowHeight="120" id="uyz-9n-1bq" customClass="CoffeeTableViewCell" customModule="drip" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="coffeeCell" rowHeight="120" id="uyz-9n-1bq" customClass="CoffeeTableViewCell" customModule="drip" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uyz-9n-1bq" id="b4O-lL-x3W">

@@ -37,6 +37,9 @@ class CoffeeTableViewCell: UITableViewCell {
         cardView.layer.cornerRadius = 3
         let radius = cardView.layer.cornerRadius
         cardView.layer.shadowPath = UIBezierPath(roundedRect: cardView.bounds, cornerRadius: radius).cgPath
+        
+        coffeeImageView.layer.borderWidth = 3
+        coffeeImageView.layer.borderColor = UIColor.lightText.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
