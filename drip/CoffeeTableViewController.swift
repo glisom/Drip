@@ -9,6 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 import RealmSwift
+import Cosmos
 
 class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
@@ -20,7 +21,16 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate = self;
         
+        setUpNavigationController()
+        
         loadEntries()
+    }
+    
+    func setUpNavigationController() {
+        view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.hideBottomHairline()
+        
     }
     
     func loadEntries() {
@@ -64,8 +74,8 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         cell.coffeeImageView?.image = UIImage.init(data: coffee.image)
         cell.coffeeImageView?.contentMode = UIViewContentMode.scaleAspectFill
         cell.coffeeImageView?.layer.masksToBounds = true
-        cell.coffeeImageView?.layer.cornerRadius = 49
-        cell.descriptionLabel.text = coffee.notes
+        cell.coffeeImageView?.layer.cornerRadius = 44
+        cell.starView.rating = Double(coffee.rating)
         cell.coffee = coffee
         
         return cell
@@ -108,4 +118,42 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     }
     
 
+}
+
+extension UINavigationBar {
+    func hideBottomHairline() {
+        self.hairlineImageView?.isHidden = true
+    }
+    
+    func showBottomHairline() {
+        self.hairlineImageView?.isHidden = false
+    }
+}
+
+extension UIToolbar {
+    func hideBottomHairline() {
+        self.hairlineImageView?.isHidden = true
+    }
+    
+    func showBottomHairline() {
+        self.hairlineImageView?.isHidden = false
+    }
+}
+
+extension UIView {
+    fileprivate var hairlineImageView: UIImageView? {
+        return hairlineImageView(in: self)
+    }
+    
+    fileprivate func hairlineImageView(in view: UIView) -> UIImageView? {
+        if let imageView = view as? UIImageView, imageView.bounds.height <= 1.0 {
+            return imageView
+        }
+        
+        for subview in view.subviews {
+            if let imageView = self.hairlineImageView(in: subview) { return imageView }
+        }
+        
+        return nil
+    }
 }

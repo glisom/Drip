@@ -14,11 +14,26 @@ class DetailViewController: UIViewController, ChartViewDelegate {
     
     var radarChartView: RadarChartView!
     let flavors = ["Sweet", "Sour/Tart", "Floral", "Spicy", "Salty", "Berry Fruit", "Citrus Fruit", "Stone Fruit", "Chocolate", "Caramel", "Smoky", "Bitter", "Savory", "Body", "Clean", "Linger/Finish"]
-
+    
+    @IBOutlet weak var coffeeImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setChartData()
+        self.navigationItem.title = coffee.name
+        coffeeImageView.image = UIImage.init(data: coffee.image)
+        titleLabel.text = coffee.name
+        subTitleLabel.text = coffee.roaster
+        descriptionLabel.text = coffee.notes
+        
+    }
+    
+    func setChartData() {
         radarChartView = RadarChartView(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: view.frame.width))
-        view.addSubview(radarChartView)
+        //view.addSubview(radarChartView)
         radarChartView.delegate = self
         radarChartView.chartDescription?.enabled = false
         radarChartView.webLineWidth = 1
@@ -32,11 +47,6 @@ class DetailViewController: UIViewController, ChartViewDelegate {
         xAxis.labelTextColor = .black
         radarChartView.xAxis.drawLabelsEnabled = true
         
-        
-        setChartData()
-        
-    }
-    func setChartData() {
         let jsonData = coffee.flavorProfile.data(using: .utf8)
         let flavorProfile = try? JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves) as! Dictionary<String, Float>
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46095E435E9F7C0EBAB9C90F /* Pods_drip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB111BB7365A997C62ADAA82 /* Pods_drip.framework */; };
+		D406177A210634BF003783CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4061779210634BF003783CE /* QuartzCore.framework */; };
 		D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181820AF1E04002CBD17 /* AppDelegate.swift */; };
 		D42A181B20AF1E04002CBD17 /* NewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181A20AF1E04002CBD17 /* NewEntryController.swift */; };
 		D42A181D20AF1E04002CBD17 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181C20AF1E04002CBD17 /* DetailViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		00329BD8CAC70D00FA8C87C1 /* Pods-drip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-drip/Pods-drip.debug.xcconfig"; sourceTree = "<group>"; };
 		5AD2D166E83ACF0F71F10846 /* Pods-drip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drip.release.xcconfig"; path = "Pods/Target Support Files/Pods-drip/Pods-drip.release.xcconfig"; sourceTree = "<group>"; };
+		D4061779210634BF003783CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D42A181520AF1E04002CBD17 /* drip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42A181820AF1E04002CBD17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42A181A20AF1E04002CBD17 /* NewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D406177A210634BF003783CE /* QuartzCore.framework in Frameworks */,
 				46095E435E9F7C0EBAB9C90F /* Pods_drip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 		C2F360525054EE8D4B429652 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4061779210634BF003783CE /* QuartzCore.framework */,
 				EB111BB7365A997C62ADAA82 /* Pods_drip.framework */,
 			);
 			name = Frameworks;
@@ -96,12 +100,12 @@
 				D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */,
 				D42A181C20AF1E04002CBD17 /* DetailViewController.swift */,
 				D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */,
+				D4D281FF2101163D00F29E49 /* CoffeeTableViewCell.swift */,
 				D42A181E20AF1E05002CBD17 /* Main.storyboard */,
 				D42A182120AF1E05002CBD17 /* Assets.xcassets */,
 				D42A182320AF1E05002CBD17 /* LaunchScreen.storyboard */,
 				D42A182620AF1E05002CBD17 /* Info.plist */,
 				D447A0EB20B7357F008E201D /* Models.swift */,
-				D4D281FF2101163D00F29E49 /* CoffeeTableViewCell.swift */,
 			);
 			path = drip;
 			sourceTree = "<group>";

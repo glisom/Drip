@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import QuartzCore
+import Cosmos
 
 class CoffeeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var starView: CosmosView!
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var coffeeImageView: UIImageView!
     @IBOutlet weak var coffeeTitleLabel: UILabel!
     @IBOutlet weak var coffeeSubtitleLabel: UILabel!
@@ -20,6 +24,19 @@ class CoffeeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        cardView.layer.masksToBounds = false;
+        cardView.layer.shadowOffset = CGSize.init(width: 0, height: 0)
+        cardView.layer.shadowRadius = 3
+        cardView.layer.shadowColor = UIColor.lightGray.cgColor
+        cardView.layer.shadowOpacity = 0.4
+        cardView.layer.cornerRadius = 3
+        let radius = cardView.layer.cornerRadius
+        cardView.layer.shadowPath = UIBezierPath(roundedRect: cardView.bounds, cornerRadius: radius).cgPath
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
