@@ -151,24 +151,24 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK8-0c-r4H">
-                                                    <rect key="frame" x="104" y="8" width="47" height="21.5"/>
+                                                    <rect key="frame" x="104" y="8" width="47" height="22"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRw-aq-dRL">
-                                                    <rect key="frame" x="104" y="31.5" width="41" height="20"/>
+                                                    <rect key="frame" x="104" y="32" width="41" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MF2-QO-Tlc">
-                                                    <rect key="frame" x="305" y="8" width="45.5" height="17"/>
+                                                    <rect key="frame" x="305" y="8" width="46" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHW-oS-C6o" customClass="CosmosView" customModule="Cosmos">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHW-oS-C6o" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="104" y="59" width="247" height="36"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
@@ -262,6 +262,7 @@
                     <connections>
                         <segue destination="epV-cK-NOr" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Yvm-lO-EXr" kind="relationship" relationship="viewControllers" id="9fV-bP-R0c"/>
+                        <segue destination="aZ1-cI-JAz" kind="relationship" relationship="viewControllers" id="qkK-FJ-vB1"/>
                         <segue destination="VCC-yI-n0T" kind="relationship" relationship="viewControllers" id="OT0-PA-aCp"/>
                     </connections>
                 </tabBarController>
@@ -360,9 +361,76 @@
             </objects>
             <point key="canvasLocation" x="752.79999999999995" y="1089.8050974512744"/>
         </scene>
+        <!--Discover-->
+        <scene sceneID="9XD-SA-o20">
+            <objects>
+                <viewController id="aZ1-cI-JAz" customClass="DiscoverViewController" customModule="drip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0VB-Up-LPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dK4-rr-gt4">
+                                <rect key="frame" x="0.0" y="-14.5" width="375" height="667"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEQ-iL-uto">
+                                <rect key="frame" x="16" y="39" width="280" height="41"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="4ln-to-TXd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Find Coffee Shops">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="findShopsButtonPressed:" destination="aZ1-cI-JAz" eventType="touchUpInside" id="pVh-fe-Rnk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0K0-Ad-bfq">
+                                <rect key="frame" x="298" y="39" width="61" height="41"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="3OA-p5-5AC"/>
+                                    <constraint firstAttribute="width" constant="61" id="XZj-qM-kLJ"/>
+                                </constraints>
+                                <state key="normal" image="location"/>
+                                <connections>
+                                    <action selector="currentLocationButtonPressed:" destination="aZ1-cI-JAz" eventType="touchUpInside" id="Ngn-ZM-mSI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nEQ-iL-uto" firstAttribute="top" secondItem="bjU-Cc-2HY" secondAttribute="top" constant="19" id="8Bn-4s-40g"/>
+                            <constraint firstItem="0K0-Ad-bfq" firstAttribute="leading" secondItem="nEQ-iL-uto" secondAttribute="trailing" constant="2" id="AYW-NL-BSh"/>
+                            <constraint firstItem="nEQ-iL-uto" firstAttribute="leading" secondItem="bjU-Cc-2HY" secondAttribute="leading" constant="16" id="H3m-sv-gXA"/>
+                            <constraint firstItem="dK4-rr-gt4" firstAttribute="centerY" secondItem="bjU-Cc-2HY" secondAttribute="centerY" id="b6k-bg-B0V"/>
+                            <constraint firstItem="bjU-Cc-2HY" firstAttribute="trailing" secondItem="0K0-Ad-bfq" secondAttribute="trailing" constant="16" id="buN-v1-TwH"/>
+                            <constraint firstItem="dK4-rr-gt4" firstAttribute="centerX" secondItem="bjU-Cc-2HY" secondAttribute="centerX" id="fHR-0w-H3e"/>
+                            <constraint firstItem="0K0-Ad-bfq" firstAttribute="top" secondItem="bjU-Cc-2HY" secondAttribute="top" constant="19" id="hnJ-Ss-9qb"/>
+                            <constraint firstItem="0K0-Ad-bfq" firstAttribute="leading" secondItem="nEQ-iL-uto" secondAttribute="trailing" constant="2" id="jEJ-Hp-2Mv"/>
+                            <constraint firstItem="dK4-rr-gt4" firstAttribute="width" secondItem="0VB-Up-LPQ" secondAttribute="width" id="rtL-he-QHC"/>
+                            <constraint firstItem="dK4-rr-gt4" firstAttribute="height" secondItem="0VB-Up-LPQ" secondAttribute="height" id="tHU-53-e9H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bjU-Cc-2HY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Discover" image="map" id="nZA-HV-kx5"/>
+                    <connections>
+                        <outlet property="currentLocationButton" destination="0K0-Ad-bfq" id="NkA-ca-5wX"/>
+                        <outlet property="findShopsButton" destination="nEQ-iL-uto" id="amj-aa-TZc"/>
+                        <outlet property="mapView" destination="dK4-rr-gt4" id="vAl-AT-oQV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nad-s2-bht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="1747.3763118440781"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="location" width="30" height="30"/>
+        <image name="map" width="30" height="30"/>
         <image name="settings" width="30" height="30"/>
         <image name="stats" width="30" height="30"/>
     </resources>

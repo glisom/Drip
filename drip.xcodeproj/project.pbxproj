@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		46095E435E9F7C0EBAB9C90F /* Pods_drip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB111BB7365A997C62ADAA82 /* Pods_drip.framework */; };
 		D406177A210634BF003783CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4061779210634BF003783CE /* QuartzCore.framework */; };
+		D40617862107C1E0003783CE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40617852107C1DF003783CE /* MapKit.framework */; };
+		D40617882107C2A8003783CE /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40617872107C2A8003783CE /* DiscoverViewController.swift */; };
 		D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181820AF1E04002CBD17 /* AppDelegate.swift */; };
 		D42A181B20AF1E04002CBD17 /* NewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181A20AF1E04002CBD17 /* NewEntryController.swift */; };
 		D42A181D20AF1E04002CBD17 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A181C20AF1E04002CBD17 /* DetailViewController.swift */; };
@@ -26,6 +28,8 @@
 		00329BD8CAC70D00FA8C87C1 /* Pods-drip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-drip/Pods-drip.debug.xcconfig"; sourceTree = "<group>"; };
 		5AD2D166E83ACF0F71F10846 /* Pods-drip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-drip.release.xcconfig"; path = "Pods/Target Support Files/Pods-drip/Pods-drip.release.xcconfig"; sourceTree = "<group>"; };
 		D4061779210634BF003783CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D40617852107C1DF003783CE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D40617872107C2A8003783CE /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		D42A181520AF1E04002CBD17 /* drip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42A181820AF1E04002CBD17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D42A181A20AF1E04002CBD17 /* NewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D40617862107C1E0003783CE /* MapKit.framework in Frameworks */,
 				D406177A210634BF003783CE /* QuartzCore.framework in Frameworks */,
 				46095E435E9F7C0EBAB9C90F /* Pods_drip.framework in Frameworks */,
 			);
@@ -58,6 +63,7 @@
 		C2F360525054EE8D4B429652 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D40617852107C1DF003783CE /* MapKit.framework */,
 				D4061779210634BF003783CE /* QuartzCore.framework */,
 				EB111BB7365A997C62ADAA82 /* Pods_drip.framework */,
 			);
@@ -100,6 +106,7 @@
 				D447A0CD20B48AD5008E201D /* FlavorWheelEditViewController.swift */,
 				D42A181C20AF1E04002CBD17 /* DetailViewController.swift */,
 				D464ACE920F7B17F00AEC201 /* CoffeeTableViewController.swift */,
+				D40617872107C2A8003783CE /* DiscoverViewController.swift */,
 				D4D281FF2101163D00F29E49 /* CoffeeTableViewCell.swift */,
 				D42A181E20AF1E05002CBD17 /* Main.storyboard */,
 				D42A182120AF1E05002CBD17 /* Assets.xcassets */,
@@ -243,6 +250,7 @@
 				D42A181920AF1E04002CBD17 /* AppDelegate.swift in Sources */,
 				D447A0CE20B48AD5008E201D /* FlavorWheelEditViewController.swift in Sources */,
 				D464ACEA20F7B17F00AEC201 /* CoffeeTableViewController.swift in Sources */,
+				D40617882107C2A8003783CE /* DiscoverViewController.swift in Sources */,
 				D42A181B20AF1E04002CBD17 /* NewEntryController.swift in Sources */,
 				D447A0EC20B7357F008E201D /* Models.swift in Sources */,
 			);
