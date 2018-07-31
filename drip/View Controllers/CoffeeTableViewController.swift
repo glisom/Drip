@@ -29,6 +29,8 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     func setUpNavigationController() {
         view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
+        self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
         self.navigationController?.navigationBar.hideBottomHairline()
         
     }
@@ -38,7 +40,8 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     }
 
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "empty_placeholder")
+        let image = UIImage.init()
+        return image
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
