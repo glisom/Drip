@@ -40,8 +40,7 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     }
 
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        let image = UIImage.init()
-        return image
+        return #imageLiteral(resourceName: "placeholder")
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
