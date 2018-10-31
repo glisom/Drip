@@ -96,7 +96,7 @@ class NewEntryController: FormViewController {
             isNil(form.values()["price"]) ? () : (coffee.price = form.values()["price"] as! Double)
             isNil(form.values()["brew_method"]) ? () : (coffee.brewMethod = form.values()["brew_method"] as! String)
             isNil(form.values()["rating"]) ? () : (coffee.rating = form.values()["rating"] as! Float)
-            if let imageData = UIImageJPEGRepresentation(form.values()["image"] as! UIImage, 1.0) {
+            if let imageData = (form.values()["image"] as! UIImage).jpegData(compressionQuality: 1.0) {
                 coffee.image = imageData
             }
             isNil(form.values()["notes"]) ? () : (coffee.notes = form.values()["notes"] as! String)
@@ -118,7 +118,7 @@ class NewEntryController: FormViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showFlavorWheelEdit" {
             let flavorWheelEditVC:FlavorWheelEditViewController = segue.destination as! FlavorWheelEditViewController
-            flavorWheelEditVC.coffee = sender as! Coffee
+            flavorWheelEditVC.coffee = sender as? Coffee
         }
     }
 

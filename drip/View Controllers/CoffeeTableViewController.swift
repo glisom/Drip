@@ -44,7 +44,7 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attributes = [NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 18), NSAttributedStringKey.foregroundColor: UIColor.darkGray];
+        let attributes = [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.darkGray];
         return NSAttributedString(string: "Add a new coffee to get started!", attributes: attributes)
     }
 
@@ -74,7 +74,7 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         cell.brewDateLabel.text = formatter.string(from: coffee.brewDate)
         
         cell.coffeeImageView?.image = UIImage.init(data: coffee.image)
-        cell.coffeeImageView?.contentMode = UIViewContentMode.scaleAspectFill
+        cell.coffeeImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         cell.coffeeImageView?.layer.masksToBounds = true
         cell.coffeeImageView?.layer.cornerRadius = 44
         cell.starView.rating = Double(coffee.rating)
@@ -94,7 +94,7 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)

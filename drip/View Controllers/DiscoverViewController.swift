@@ -77,7 +77,7 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
     func performSearch() {
         
         matchingItems.removeAll()
-        let request = MKLocalSearchRequest()
+        let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "coffee"
         request.region = mapView.region
         
