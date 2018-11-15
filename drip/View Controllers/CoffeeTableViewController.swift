@@ -18,20 +18,24 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.emptyDataSetSource = self;
-        self.tableView.emptyDataSetDelegate = self;
+        tableView.emptyDataSetSource = self;
+        tableView.emptyDataSetDelegate = self;
         
         setUpNavigationController()
-        
         loadEntries()
     }
     
     func setUpNavigationController() {
         view.backgroundColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = UIColor.white
-        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
-        self.navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
-        self.navigationController?.navigationBar.hideBottomHairline()
+        navigationController?.navigationBar.backgroundColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.lightGray
+        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
+        navigationController?.navigationBar.hideBottomHairline()
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "logo-text"))
+        imageView.contentMode = .scaleAspectFit
+//        imageView.frame = CGRect(x: 0, y: 0, width: 248, height: (navigationController?.navigationBar.frame.height)!)
+//        imageView.center = (navigationController?.navigationBar.center)!
+        navigationItem.titleView = imageView
         
     }
     
@@ -124,21 +128,21 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
 
 extension UINavigationBar {
     func hideBottomHairline() {
-        self.hairlineImageView?.isHidden = true
+        hairlineImageView?.isHidden = true
     }
     
     func showBottomHairline() {
-        self.hairlineImageView?.isHidden = false
+        hairlineImageView?.isHidden = false
     }
 }
 
 extension UIToolbar {
     func hideBottomHairline() {
-        self.hairlineImageView?.isHidden = true
+        hairlineImageView?.isHidden = true
     }
     
     func showBottomHairline() {
-        self.hairlineImageView?.isHidden = false
+        hairlineImageView?.isHidden = false
     }
 }
 
@@ -153,7 +157,7 @@ extension UIView {
         }
         
         for subview in view.subviews {
-            if let imageView = self.hairlineImageView(in: subview) { return imageView }
+            if let imageView = hairlineImageView(in: subview) { return imageView }
         }
         
         return nil

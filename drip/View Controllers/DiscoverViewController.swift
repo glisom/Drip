@@ -18,7 +18,10 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
     @IBOutlet weak var searchText: UITextField!
     var matchingItems: [MKMapItem] = [MKMapItem]()
     let regionRadius: CLLocationDistance = 1000
+    let reuseIdentifier = "pin"
 
+    @IBOutlet weak var openInMapsButton: UIButton!
+    @IBOutlet weak var coffeeStoreButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -41,6 +44,24 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
         currentLocationButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         currentLocationButton.layer.cornerRadius = 3
         currentLocationButton.layer.shadowPath = UIBezierPath(roundedRect: currentLocationButton.bounds, cornerRadius: radius).cgPath
+        openInMapsButton.isHidden = true
+        coffeeStoreButton.isHidden = true
+        openInMapsButton.layer.masksToBounds = false
+        openInMapsButton.layer.shadowOffset = CGSize.init(width: 0, height: 0)
+        openInMapsButton.layer.shadowRadius = 3
+        openInMapsButton.layer.shadowColor = UIColor.lightGray.cgColor
+        openInMapsButton.layer.shadowOpacity = 0.4
+        openInMapsButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        openInMapsButton.layer.cornerRadius = 3
+        openInMapsButton.layer.shadowPath = UIBezierPath(roundedRect: openInMapsButton.bounds, cornerRadius: radius).cgPath
+        coffeeStoreButton.layer.masksToBounds = false
+        coffeeStoreButton.layer.shadowOffset = CGSize.init(width: 0, height: 0)
+        coffeeStoreButton.layer.shadowRadius = 3
+        coffeeStoreButton.layer.shadowColor = UIColor.lightGray.cgColor
+        coffeeStoreButton.layer.shadowOpacity = 0.4
+        coffeeStoreButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        coffeeStoreButton.layer.cornerRadius = 3
+        coffeeStoreButton.layer.shadowPath = UIBezierPath(roundedRect: currentLocationButton.bounds, cornerRadius: radius).cgPath
     }
     
     @IBAction func findShopsButtonPressed(_ sender: Any) {
@@ -49,6 +70,10 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
     
     @IBAction func currentLocationButtonPressed(_ sender: Any) {
         locationManager.startUpdatingLocation()
+    }
+    
+    @IBAction func openInMaps(_ sender: Any) {
+        
     }
     
     func checkLocationAuthorizationStatus() {
@@ -74,6 +99,18 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
         checkLocationAuthorizationStatus()
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        openInMapsButton.isHidden = false
+        coffeeStoreButton.isHidden = false
+        coffeeStoreButton.titleLabel?.text = (view.annotation?.title)!
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        annotationView.pinTintColor = UIColor.black
+        return annotationView
+    }
+    
     func performSearch() {
         
         matchingItems.removeAll()
@@ -97,10 +134,8 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
                     for item in results.mapItems {
                         print("Name = \(item.name ?? "No match")")
                         print("Phone = \(item.phoneNumber ?? "No Match")")
-                        if (!(item.name?.lowercased().contains("starbucks"))!) {
-                            self.matchingItems.append(item as MKMapItem)
-                            print("Matching items = \(self.matchingItems.count)")
-                        }
+                        self.matchingItems.append(item as MKMapItem)
+                        print("Matching items = \(self.matchingItems.count)")
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = item.placemark.coordinate
                         annotation.title = item.name
