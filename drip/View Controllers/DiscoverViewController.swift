@@ -19,6 +19,8 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
     var matchingItems: [MKMapItem] = [MKMapItem]()
     let regionRadius: CLLocationDistance = 1000
     let reuseIdentifier = "pin"
+    var currentAnnotation: MKAnnotation?
+    var mapItems = [MKMapItem]()
 
     @IBOutlet weak var openInMapsButton: UIButton!
     @IBOutlet weak var coffeeStoreButton: UIButton!
@@ -51,7 +53,7 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
         openInMapsButton.layer.shadowRadius = 3
         openInMapsButton.layer.shadowColor = UIColor.lightGray.cgColor
         openInMapsButton.layer.shadowOpacity = 0.4
-        openInMapsButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        openInMapsButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         openInMapsButton.layer.cornerRadius = 3
         openInMapsButton.layer.shadowPath = UIBezierPath(roundedRect: openInMapsButton.bounds, cornerRadius: radius).cgPath
         coffeeStoreButton.layer.masksToBounds = false
@@ -59,7 +61,7 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
         coffeeStoreButton.layer.shadowRadius = 3
         coffeeStoreButton.layer.shadowColor = UIColor.lightGray.cgColor
         coffeeStoreButton.layer.shadowOpacity = 0.4
-        coffeeStoreButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        coffeeStoreButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         coffeeStoreButton.layer.cornerRadius = 3
         coffeeStoreButton.layer.shadowPath = UIBezierPath(roundedRect: currentLocationButton.bounds, cornerRadius: radius).cgPath
     }
@@ -73,7 +75,11 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
     }
     
     @IBAction func openInMaps(_ sender: Any) {
-        
+        for mapItem in mapItems {
+            if currentAnnotation?.title == mapItem.name {
+                mapItem.openInMaps(launchOptions: nil)
+            }
+        }
     }
     
     func checkLocationAuthorizationStatus() {
@@ -100,15 +106,52 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation?.title == "My Location" {
+            return
+        }
         openInMapsButton.isHidden = false
         coffeeStoreButton.isHidden = false
-        coffeeStoreButton.titleLabel?.text = (view.annotation?.title)!
+        coffeeStoreButton.setTitle((view.annotation?.title)!, for: .normal)
+        coffeeStoreButton.setTitle((view.annotation?.title)!, for: .selected)
+        currentAnnotation = view.annotation
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        annotationView.pinTintColor = UIColor.black
-        return annotationView
+        if annotation.title == "My Location" {
+            return nil
+        } else {
+            let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView.pinTintColor = UIColor.black
+            return annotationView
+        }
+    }
+    
+   func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        var i = -1;
+        for view in views {
+            i += 1;
+            if view.annotation is MKUserLocation {
+                continue;
+            }
+            let point:MKMapPoint  =  MKMapPoint(view.annotation!.coordinate);
+            if (!self.mapView.visibleMapRect.contains(point)) {
+                continue;
+            }
+            let endFrame:CGRect = view.frame;
+            view.frame = CGRect(origin: CGPoint(x: view.frame.origin.x,y :view.frame.origin.y-self.view.frame.size.height), size: CGSize(width: view.frame.size.width, height: view.frame.size.height))
+            let delay = 0.03 * Double(i)
+            UIView.animate(withDuration: 0.5, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations:{() in
+                view.frame = endFrame
+            }, completion:{(Bool) in
+                UIView.animate(withDuration: 0.05, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations:{() in
+                    view.transform = CGAffineTransform(scaleX: 1.0, y: 0.6)
+                }, completion: {(Bool) in
+                    UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations:{() in
+                        view.transform = CGAffineTransform.identity
+                    }, completion: nil)
+                })
+            })
+        }
     }
     
     func performSearch() {
@@ -132,6 +175,7 @@ class DiscoverViewController: UIViewController, CLLocationManagerDelegate, MKMap
                     print("Matches found")
                     
                     for item in results.mapItems {
+                        self.mapItems = results.mapItems
                         print("Name = \(item.name ?? "No match")")
                         print("Phone = \(item.phoneNumber ?? "No Match")")
                         self.matchingItems.append(item as MKMapItem)

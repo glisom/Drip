@@ -33,8 +33,6 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         navigationController?.navigationBar.hideBottomHairline()
         let imageView = UIImageView(image: #imageLiteral(resourceName: "logo-text"))
         imageView.contentMode = .scaleAspectFit
-//        imageView.frame = CGRect(x: 0, y: 0, width: 248, height: (navigationController?.navigationBar.frame.height)!)
-//        imageView.center = (navigationController?.navigationBar.center)!
         navigationItem.titleView = imageView
         
     }
