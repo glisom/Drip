@@ -1,20 +1,20 @@
 PODS:
-  - Charts (3.1.1):
-    - Charts/Core (= 3.1.1)
-  - Charts/Core (3.1.1)
-  - Cosmos (16.0.0)
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
+  - Cosmos (19.0.3)
   - DZNEmptyDataSet (1.8.1)
-  - Eureka (4.2.0)
-  - ImageRow (3.1.0):
-    - Eureka (~> 4.0)
-  - Realm (3.7.4):
-    - Realm/Headers (= 3.7.4)
-  - Realm/Headers (3.7.4)
-  - RealmSwift (3.7.4):
-    - Realm (= 3.7.4)
-  - SwiftMessages (4.1.4):
-    - SwiftMessages/App (= 4.1.4)
-  - SwiftMessages/App (4.1.4)
+  - Eureka (5.0.0)
+  - ImageRow (4.0.0):
+    - Eureka (~> 5.0)
+  - Realm (3.16.1):
+    - Realm/Headers (= 3.16.1)
+  - Realm/Headers (3.16.1)
+  - RealmSwift (3.16.1):
+    - Realm (= 3.16.1)
+  - SwiftMessages (7.0.0):
+    - SwiftMessages/App (= 7.0.0)
+  - SwiftMessages/App (7.0.0)
 
 DEPENDENCIES:
   - Charts
@@ -37,15 +37,15 @@ SPEC REPOS:
     - SwiftMessages
 
 SPEC CHECKSUMS:
-  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
-  Cosmos: 7bcee0fa858a9355a214f2a181be5dffcee42c81
+  Charts: ec1f57f9340054155691e84d4544a1d239d382c5
+  Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
-  ImageRow: 1ea483078bfa3d880a7fc76fdfcddfd5f29a9e6b
-  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
-  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
-  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  ImageRow: e65b2e1a33f89062bf2a553a2aad61d975eb7428
+  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
+  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
+  SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
 
 PODFILE CHECKSUM: a0918f78ee70434674dfffd1b5c4f0295c52f7d9
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.7.1

@@ -4,7 +4,6 @@
 ### Coffee Form
 * Coffee Origin/Name
 * Roaster
-* Producer
 * Roast Date
 * Brew Date
 * Beverage

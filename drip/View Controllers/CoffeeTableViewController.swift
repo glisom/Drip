@@ -11,7 +11,7 @@ import DZNEmptyDataSet
 import RealmSwift
 import Cosmos
 
-class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     let realm = try! Realm()
     var coffees: Results<Coffee>!
@@ -26,7 +26,7 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     }
     
     func setUpNavigationController() {
-        view.backgroundColor = UIColor.white
+//        view.backgroundColor = UIColor.white
         navigationController?.navigationBar.backgroundColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.lightGray
         navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
@@ -47,6 +47,7 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.darkGray];
+        view.backgroundColor = .white
         return NSAttributedString(string: "Add a new coffee to get started!", attributes: attributes)
     }
 
@@ -74,11 +75,15 @@ class CoffeeTableViewController: UITableViewController, DZNEmptyDataSetSource, D
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         cell.brewDateLabel.text = formatter.string(from: coffee.brewDate)
-        
-        cell.coffeeImageView?.image = UIImage.init(data: coffee.image)
-        cell.coffeeImageView?.contentMode = UIView.ContentMode.scaleAspectFill
-        cell.coffeeImageView?.layer.masksToBounds = true
-        cell.coffeeImageView?.layer.cornerRadius = 44
+        if let imageData = coffee.image {
+            cell.coffeeImageView?.image = UIImage(data: imageData)
+            
+            cell.coffeeImageView?.layer.masksToBounds = true
+            cell.coffeeImageView?.layer.cornerRadius = 44
+        } else {
+            cell.coffeeImageView?.image = #imageLiteral(resourceName: "coffee-cup")
+            cell.coffeeImageView?.contentMode = .scaleAspectFit
+        }
         cell.starView.rating = Double(coffee.rating)
         cell.coffee = coffee
         
