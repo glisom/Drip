@@ -13,13 +13,14 @@ import RealmSwift
 class FlavorWheelEditViewController: FormViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var coffee: Coffee!
+    var isUpdate: Bool = false
     
     let flavors = ["Sweet", "Sour/Tart", "Floral", "Spicy", "Salty", "Berry Fruit", "Citrus Fruit", "Stone Fruit", "Chocolate", "Caramel", "Smoky", "Bitter", "Savory", "Body", "Clean", "Linger/Finish"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let flavorProfile = coffee.flavorProfile {
+        if let flavorProfile = coffee.flavorProfile, isUpdate {
             let jsonData = flavorProfile.data(using: .utf8)
             let flavorProfile = try! JSONSerialization.jsonObject(with: jsonData!, options: .mutableLeaves) as! Dictionary<String, Float>
             
@@ -54,10 +55,16 @@ class FlavorWheelEditViewController: FormViewController {
     @IBAction func didTapSaveButton(_ sender: Any) {
         let realm = try! Realm()
         if form.validate().count == 0 {
-            try! realm.write {
-                let jsonData = try? JSONSerialization.data(withJSONObject: form.values(), options: [.prettyPrinted])
-                let jsonString = String(data: jsonData!, encoding: .utf8)
-                coffee.flavorProfile =  jsonString!
+            if isUpdate {
+                try! realm.write {
+                    let jsonData = try? JSONSerialization.data(withJSONObject: form.values(), options: [.prettyPrinted])
+                    let jsonString = String(data: jsonData!, encoding: .utf8)
+                    coffee.flavorProfile =  jsonString!
+                }
+            } else {
+                try! realm.write {
+                    realm.add(coffee)
+                }
             }
         }
         self.performSegue(withIdentifier: "unwindToStart", sender: self)

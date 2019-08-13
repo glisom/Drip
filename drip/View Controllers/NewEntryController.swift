@@ -15,12 +15,15 @@ import RealmSwift
 class NewEntryController: FormViewController {
     @IBOutlet weak var nextButton: UIBarButtonItem!
     var coffee: Coffee!
+    var isUpdate: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if coffee == nil {
             coffee = Coffee()
+        } else {
+            isUpdate = true
         }
         
         form +++ Section("General Info")
@@ -89,21 +92,13 @@ class NewEntryController: FormViewController {
     
     @IBAction func didTapNextButton(_ sender: Any) {
         if form.validate().count == 0 {
-            // Add values to shared instance while creating flavor wheel
-            let realm = try! Realm()
-            try! realm.write {
-                isNil(form.values()["name"]) ? () : (coffee.name = form.values()["name"] as? String)
-                isNil(form.values()["roaster"]) ? () : (coffee.roaster = form.values()["roaster"] as? String)
-                isNil(form.values()["roast_date"]) ? () : (coffee.roastDate = form.values()["roast_date"] as! Date)
-                isNil(form.values()["brew_date"]) ? () : (coffee.brewDate = form.values()["brew_date"] as! Date)
-                isNil(form.values()["beverage"]) ? () : (coffee.beverage = form.values()["beverage"] as? String)
-                isNil(form.values()["price"]) ? () : (coffee.price = form.values()["price"] as! Double)
-                isNil(form.values()["brew_method"]) ? () : (coffee.brewMethod = form.values()["brew_method"] as? String)
-                isNil(form.values()["rating"]) ? () : (coffee.rating = form.values()["rating"] as! Float)
-                if let imageData = (form.values()["image"] as! UIImage).jpegData(compressionQuality: 1.0) {
-                    coffee.image = imageData
+            if isUpdate {
+                let realm = try! Realm()
+                try! realm.write {
+                    updateCoffee()
                 }
-                isNil(form.values()["notes"]) ? () : (coffee.notes = form.values()["notes"] as? String)
+            } else {
+                 updateCoffee()
             }
             
             performSegue(withIdentifier: "showFlavorWheelEdit", sender: coffee)
@@ -120,10 +115,26 @@ class NewEntryController: FormViewController {
         }
     }
     
+    func updateCoffee() {
+        isNil(form.values()["name"]) ? () : (coffee.name = form.values()["name"] as? String)
+        isNil(form.values()["roaster"]) ? () : (coffee.roaster = form.values()["roaster"] as? String)
+        isNil(form.values()["roast_date"]) ? () : (coffee.roastDate = form.values()["roast_date"] as! Date)
+        isNil(form.values()["brew_date"]) ? () : (coffee.brewDate = form.values()["brew_date"] as! Date)
+        isNil(form.values()["beverage"]) ? () : (coffee.beverage = form.values()["beverage"] as? String)
+        isNil(form.values()["price"]) ? () : (coffee.price = form.values()["price"] as! Double)
+        isNil(form.values()["brew_method"]) ? () : (coffee.brewMethod = form.values()["brew_method"] as? String)
+        isNil(form.values()["rating"]) ? () : (coffee.rating = form.values()["rating"] as! Float)
+        if let imageData = (form.values()["image"] as! UIImage).jpegData(compressionQuality: 1.0) {
+            coffee.image = imageData
+        }
+        isNil(form.values()["notes"]) ? () : (coffee.notes = form.values()["notes"] as? String)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showFlavorWheelEdit" {
             let flavorWheelEditVC:FlavorWheelEditViewController = segue.destination as! FlavorWheelEditViewController
             flavorWheelEditVC.coffee = sender as? Coffee
+            flavorWheelEditVC.isUpdate = isUpdate
         }
     }
 
