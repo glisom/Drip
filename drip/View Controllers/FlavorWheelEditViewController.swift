@@ -63,6 +63,9 @@ class FlavorWheelEditViewController: FormViewController {
                 }
             } else {
                 try! realm.write {
+                    let jsonData = try? JSONSerialization.data(withJSONObject: form.values(), options: [.prettyPrinted])
+                    let jsonString = String(data: jsonData!, encoding: .utf8)
+                    coffee.flavorProfile =  jsonString!
                     realm.add(coffee)
                 }
             }

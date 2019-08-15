@@ -26,13 +26,13 @@ class CoffeeHistoryCell: UITableViewCell {
         
         if coffee.price != 0.0 {
             let priceLabel = UILabel()
-            priceLabel.text = String(format: ",$%.02f", coffee.price)
+            priceLabel.text = String(format: "$%.02f", coffee.price)
             priceLabel.font = UIFont.preferredFont(forTextStyle: .title3).bold()
             contentView.addSubview(priceLabel)
             
             priceLabel.translatesAutoresizingMaskIntoConstraints = false
             priceLabel.topAnchor.constraint(equalTo: roastedLabel.bottomAnchor, constant: 10).isActive = true
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
             priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         }
     }

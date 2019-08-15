@@ -21,3 +21,75 @@ extension UIFont {
         return withTraits(traits: .traitItalic)
     }
 }
+
+
+extension UINavigationBar {
+    func hideBottomHairline() {
+        hairlineImageView?.isHidden = true
+    }
+    
+    func showBottomHairline() {
+        hairlineImageView?.isHidden = false
+    }
+}
+
+extension UIToolbar {
+    func hideBottomHairline() {
+        hairlineImageView?.isHidden = true
+    }
+    
+    func showBottomHairline() {
+        hairlineImageView?.isHidden = false
+    }
+}
+
+extension UIView {
+    fileprivate var hairlineImageView: UIImageView? {
+        return hairlineImageView(in: self)
+    }
+    
+    fileprivate func hairlineImageView(in view: UIView) -> UIImageView? {
+        if let imageView = view as? UIImageView, imageView.bounds.height <= 1.0 {
+            return imageView
+        }
+        
+        for subview in view.subviews {
+            if let imageView = hairlineImageView(in: subview) { return imageView }
+        }
+        
+        return nil
+    }
+}
+
+extension Date {
+    func isInSameWeek(date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .weekOfYear)
+    }
+    func isInSameMonth(date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .month)
+    }
+    func isInSameYear(date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .year)
+    }
+    func isInSameDay(date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .day)
+    }
+    var isInThisWeek: Bool {
+        return isInSameWeek(date: Date())
+    }
+    var isInYesterday: Bool {
+        return Calendar.current.isDateInYesterday(self)
+    }
+    var isInToday: Bool {
+        return Calendar.current.isDateInToday(self)
+    }
+    var isInTomorrow: Bool {
+        return Calendar.current.isDateInTomorrow(self)
+    }
+    var isInTheFuture: Bool {
+        return Date() < self
+    }
+    var isInThePast: Bool {
+        return self < Date()
+    }
+}

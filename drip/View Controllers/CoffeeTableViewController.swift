@@ -15,18 +15,23 @@ class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmp
     
     let realm = try! Realm()
     var coffees: Results<Coffee>!
+    var defaultColor: UIColor?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
-        
+        defaultColor = view.backgroundColor
         setUpNavigationController()
         loadEntries()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadEntries()
+    }
+    
     func setUpNavigationController() {
-//        view.backgroundColor = UIColor.white
         navigationController?.navigationBar.backgroundColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.lightGray
         navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
@@ -38,7 +43,18 @@ class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmp
     }
     
     func loadEntries() {
+        var currentCount: Int
+        currentCount = (coffees != nil) ? coffees.count : 0
         coffees = realm.objects(Coffee.self)
+        if coffees.count > 0 {
+            view.backgroundColor = defaultColor
+            tableView.reloadData()
+        } else {
+            if (currentCount != coffees.count) {
+                tableView.reloadData()
+            }
+            view.backgroundColor = .white
+        }
     }
 
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
@@ -47,19 +63,16 @@ class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmp
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attributes = [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.darkGray];
-        view.backgroundColor = .white
         return NSAttributedString(string: "Add a new coffee to get started!", attributes: attributes)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return coffees.count
     }
 
@@ -94,7 +107,6 @@ class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmp
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     
@@ -103,17 +115,15 @@ class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmp
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            try! realm.write {
+            realm.delete(coffees[indexPath.row])
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
 
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let detailVC = segue.destination as! DetailViewController
@@ -123,46 +133,8 @@ class CoffeeViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmp
     }
     
     @IBAction func unwindToViewControllerNameHere(segue: UIStoryboardSegue) {
-        tableView.reloadData()
+        loadEntries()
     }
     
 
-}
-
-extension UINavigationBar {
-    func hideBottomHairline() {
-        hairlineImageView?.isHidden = true
-    }
-    
-    func showBottomHairline() {
-        hairlineImageView?.isHidden = false
-    }
-}
-
-extension UIToolbar {
-    func hideBottomHairline() {
-        hairlineImageView?.isHidden = true
-    }
-    
-    func showBottomHairline() {
-        hairlineImageView?.isHidden = false
-    }
-}
-
-extension UIView {
-    fileprivate var hairlineImageView: UIImageView? {
-        return hairlineImageView(in: self)
-    }
-    
-    fileprivate func hairlineImageView(in view: UIView) -> UIImageView? {
-        if let imageView = view as? UIImageView, imageView.bounds.height <= 1.0 {
-            return imageView
-        }
-        
-        for subview in view.subviews {
-            if let imageView = hairlineImageView(in: subview) { return imageView }
-        }
-        
-        return nil
-    }
 }
