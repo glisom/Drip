@@ -19,6 +19,7 @@ class DetailViewController: UITableViewController {
             let headerView = UIImageView(image: image)
             headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width)
             headerView.contentMode = .scaleAspectFill
+            headerView.clipsToBounds = true
             tableView.tableHeaderView = headerView
             tableView.rowHeight = UITableView.automaticDimension
         }

@@ -10,14 +10,9 @@ import Foundation
 import Charts
 
 public class DayFormatter: NSObject, IAxisValueFormatter {
-    private let dateFormatter = DateFormatter()
-    
-    override init() {
-        super.init()
-        dateFormatter.dateFormat = "dd"
-    }
+    private let days = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"]
     
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+        return days[Int(value)]
     }
 }

@@ -14,6 +14,7 @@ class StatCell: UITableViewCell {
 
     convenience init(_ coffees: Results<Coffee>, _ statType: StatType) {
         self.init()
+        isUserInteractionEnabled = false
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         let cardView = UIView()
@@ -60,7 +61,8 @@ class StatCell: UITableViewCell {
             dataEntries.append(entry)
         }
         
-        let chartDataSet = BarChartDataSet(dataEntries)
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: nil)
+        chartDataSet.drawValuesEnabled = false
         let chartData = BarChartData(dataSet: chartDataSet)
         chartView.data = chartData
         let yAxisFormatter = NumberFormatter()
@@ -69,10 +71,12 @@ class StatCell: UITableViewCell {
         
         let yAxis = chartView.leftAxis
         yAxis.labelFont = .systemFont(ofSize: 10)
-        yAxis.labelCount = 8
+        yAxis.axisMinLabels = 1
+        yAxis.axisMaxLabels = 26
+        yAxis.labelCount = coffeesOnEachDay.max() ?? 1
         yAxis.valueFormatter = DefaultAxisValueFormatter(formatter: yAxisFormatter)
         yAxis.labelPosition = .outsideChart
-        yAxis.spaceTop = 0.15
+        yAxis.spaceTop = 0
         yAxis.axisMinimum = 0
         
         let xAxis = chartView.xAxis
@@ -81,6 +85,10 @@ class StatCell: UITableViewCell {
         xAxis.granularity = 1
         xAxis.labelCount = 7
         xAxis.valueFormatter = DayFormatter()
+        xAxis.drawGridLinesEnabled = false
+        
+        chartView.rightAxis.enabled = false
+        chartView.legend.form = .none
     }
 
 }

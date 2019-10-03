@@ -20,6 +20,7 @@ class CoffeeChartCell: UITableViewCell {
         self.init()
         self.coffee = coffee
         setChartData()
+        isUserInteractionEnabled = false
     }
     
     func setChartData() {
