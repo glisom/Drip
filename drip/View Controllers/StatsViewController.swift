@@ -25,6 +25,10 @@ class StatsViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
         loadEntries()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadEntries()
+    }
+    
     func setUpNavigationController() {
         navigationController?.navigationBar.backgroundColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.lightGray
@@ -61,11 +65,25 @@ class StatsViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coffees.count > 0 ? 5 : 0
+        return coffees.count > 0 ? 4 : 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = StatCell(coffees, .overall)
-        return cell
+        switch indexPath.row {
+        case 0:
+            let cell = StatCell(coffees, .overall)
+            return cell
+        case 1:
+            let cell = StatCell(coffees, .flavorProfile)
+            return cell
+        case 2:
+            let cell = StatCell(coffees, .totalSpend)
+            return cell
+        case 3:
+            let cell = StatCell(coffees, .avgRating)
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
 }

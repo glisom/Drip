@@ -15,6 +15,7 @@ PODS:
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
+  - UICountingLabel (1.4.1)
 
 DEPENDENCIES:
   - Charts
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - ImageRow
   - RealmSwift
   - SwiftMessages
+  - UICountingLabel
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -35,6 +37,8 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SwiftMessages
+  trunk:
+    - UICountingLabel
 
 SPEC CHECKSUMS:
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
@@ -45,7 +49,8 @@ SPEC CHECKSUMS:
   Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
   RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
+  UICountingLabel: faf890b505d96312e324a86718f031fafffb0ccb
 
-PODFILE CHECKSUM: a0918f78ee70434674dfffd1b5c4f0295c52f7d9
+PODFILE CHECKSUM: 488d90a057c3bdd491efeb5da6bd396fdff4f5c0
 
 COCOAPODS: 1.8.0

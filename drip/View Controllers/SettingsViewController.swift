@@ -21,6 +21,17 @@ class SettingsViewController: UITableViewController {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             versionLabel.text = version
         }
+        setUpNavigationController()
+    }
+    
+    func setUpNavigationController() {
+        navigationController?.navigationBar.backgroundColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.lightGray
+        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
+        navigationController?.navigationBar.hideBottomHairline()
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "logo-text"))
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

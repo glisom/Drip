@@ -10,4 +10,5 @@ target 'drip' do
   pod 'DZNEmptyDataSet'
   pod 'SwiftMessages'
   pod 'Cosmos'
+  pod 'UICountingLabel'
 end
