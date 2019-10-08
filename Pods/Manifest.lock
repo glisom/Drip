@@ -7,11 +7,11 @@ PODS:
   - Eureka (5.0.0)
   - ImageRow (4.0.0):
     - Eureka (~> 5.0)
-  - Realm (3.16.1):
-    - Realm/Headers (= 3.16.1)
-  - Realm/Headers (3.16.1)
-  - RealmSwift (3.16.1):
-    - Realm (= 3.16.1)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
@@ -23,7 +23,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Eureka
   - ImageRow
-  - RealmSwift
+  - RealmSwift (~> 3.19.0)
   - SwiftMessages
   - UICountingLabel
 
@@ -34,10 +34,10 @@ SPEC REPOS:
     - DZNEmptyDataSet
     - Eureka
     - ImageRow
-    - Realm
-    - RealmSwift
     - SwiftMessages
   trunk:
+    - Realm
+    - RealmSwift
     - UICountingLabel
 
 SPEC CHECKSUMS:
@@ -46,11 +46,11 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   ImageRow: e65b2e1a33f89062bf2a553a2aad61d975eb7428
-  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
-  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   UICountingLabel: faf890b505d96312e324a86718f031fafffb0ccb
 
-PODFILE CHECKSUM: 488d90a057c3bdd491efeb5da6bd396fdff4f5c0
+PODFILE CHECKSUM: a04dd7a4ccbdc0d17a8169fb8c6e4431c06e1d34
 
-COCOAPODS: 1.8.0
+COCOAPODS: 1.8.3

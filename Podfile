@@ -6,7 +6,7 @@ target 'drip' do
   pod 'Eureka'
   pod 'ImageRow'
   pod 'Charts'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 3.19.0'
   pod 'DZNEmptyDataSet'
   pod 'SwiftMessages'
   pod 'Cosmos'

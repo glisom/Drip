@@ -206,8 +206,11 @@ class StatCell: UITableViewCell {
         xAxis.valueFormatter = self
         radarChartView.xAxis.drawLabelsEnabled = true
         radarChartView.yAxis.drawLabelsEnabled = false
-        
-        radarChartView.data = chartData
+        if dataEntries.count > 0 {
+            radarChartView.data = chartData
+        }
+        radarChartView.noDataText = "No Flavor Profile"
+        radarChartView.noDataFont = UIFont.preferredFont(forTextStyle: .title2)
     }
     
     func cellTitle(_ statType: StatType) -> String {
@@ -226,7 +229,11 @@ class StatCell: UITableViewCell {
 
 extension StatCell: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return flavors[Int(value) % flavors.count]
+        if flavors.count > 0 {
+            return flavors[Int(value) % flavors.count]
+        } else {
+            return ""
+        }
     }
 }
 
