@@ -31,8 +31,8 @@ class StatsViewController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
     
     func setUpNavigationController() {
         navigationController?.navigationBar.backgroundColor = UIColor.white
-        navigationController?.navigationBar.tintColor = UIColor.lightGray
-        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
+        navigationController?.navigationBar.tintColor = UIColor(red:0.05, green:0.16, blue:0.29, alpha:1.00)
+        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor(red:0.05, green:0.16, blue:0.29, alpha:1.00)
         navigationController?.navigationBar.hideBottomHairline()
         let imageView = UIImageView(image: #imageLiteral(resourceName: "logo-text"))
         imageView.contentMode = .scaleAspectFit
